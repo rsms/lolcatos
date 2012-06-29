@@ -5,7 +5,7 @@ make
 # Make a RAM disk of 1.44 MB as ExFAT
 NUMSECTORS=2880
 mydev=`hdid -nomount ram://$NUMSECTORS | awk '{print $1}'`
-newfs_exfat -S 512 $mydev
+#newfs_msdos -F 12 -S 512 $mydev  # Create a FAT12 fs
 
 # Copy the bootloader to the first sector
 #dd if=boot.bin of=$mydev bs=2x80x18b
